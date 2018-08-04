@@ -30,7 +30,7 @@ class Polynomial():
     def compute_polynomial(self,x):
         polysum = 0.0
         for i in range(self.highest_degree + 1):
-            res = self.monomial_list[i].compute_monomial(1.6)
+            res = self.monomial_list[i].compute_monomial(x)
             polysum += res
         return polysum
 

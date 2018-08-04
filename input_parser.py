@@ -13,9 +13,9 @@ class InputString():
     def __init__(self,input_str='none'):
         self.input_str = input_str
         self.input_list = []
+        self.arg_list = []
         self.command = 'none'
         self.command_list = ['help', #list of all commands available
-                            'time', #increments the time
                             'upgrade',
                             'stop',
                             'contribs' #prints the contribution of each polynomial
@@ -28,6 +28,7 @@ class InputString():
         self.input_list = self.input_str.split()
 
     def generate_command(self,input_str): #updates self.command
+        self.arg_list = []
         self.update_str(input_str)
         self.create_list()
         inp = self.input_list #for memory purposes
@@ -35,12 +36,15 @@ class InputString():
         if inp[0] not in self.command_list:
             self.command = 'unknown'
         elif inp[0] == 'help':
-            self.command = 'none'
+            self.command = 'help'
             self.print_help()
-        elif inp[0] == 'time':
-            self.command = 'time'
+        elif inp[0] == 'upgrade':
+            self.command = 'upgrade'
         elif inp[0] == 'stop':
             self.command = 'stop'
+        
+        if len(inp) > 1:
+            self.arg_list = inp[1:]
 
 
 
