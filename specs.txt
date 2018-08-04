@@ -1,0 +1,58 @@
+Project specs:
+
+
+
+Game mechanics:
+    The player controls a polynomial
+    At every time step, currency is gained based on the polynomial characteristics with input X
+    The player can upgrade the coeff of the monomials but the degrees are always constant
+    the goal is to raise the value of X to reach the final value (can be made 20)
+    Player purchases upgrades to imporve coeeficients, X, and other stuff
+    Player may buy upgrades to upgrade the GUI (fun)
+    May implement alternate currency generation
+
+Needed modules:
+    Main: contains the game
+        variables:
+            time
+            X
+            polynomial
+            currency
+            goal conditions
+    Polynomial: (wraps everything)
+        monomials
+        highest degree
+        expression
+        contribution of each monomials
+        upgrades
+    Monominals:
+        coeff
+        degrees
+        step
+    Upgrades: (contains the upgrades the suer has yet to buy)
+        mtd: generate upgrade
+        upgrades for each mono is represnted as a list
+    Input Parser: (reads user input and returns the action, made to translate to buttons)
+        
+
+
+
+
+
+Features wanted:
+    GUI driven game
+    automatic time progression
+    compute points and add them
+    upgrade systems
+    use a mathplotlib plot to represent the progression
+
+
+
+
+Temporary features for testing:
+    Console based game
+    Time advances when the player clicks
+    Focus on implementing upgrades
+    make the game function as a command prompt
+    Help
+    Start at 1 and focus on upgrading smoothly
