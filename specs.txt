@@ -13,7 +13,7 @@ Game mechanics:
 
 Needed modules:
     Main: contains the game
-        variables:
+        variables: all in a arguments class for easy modification
             time
             X
             polynomial
@@ -33,7 +33,7 @@ Needed modules:
         mtd: generate upgrade
         upgrades for each mono is represnted as a list
     Input Parser: (reads user input and returns the action, made to translate to buttons)
-        
+
 
 
 
@@ -50,9 +50,11 @@ Features wanted:
 
 
 Temporary features for testing:
-    Console based game
-    Time advances when the player clicks
+    Console based game 
+    X Time advances when the player clicks
     Focus on implementing upgrades
-    make the game function as a command prompt
+    X make the game function as a command prompt
     Help
     Start at 1 and focus on upgrading smoothly
+    Save based on time or manual saving
+    Auto loADING SAVE

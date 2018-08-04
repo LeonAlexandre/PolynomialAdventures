@@ -1,58 +1,96 @@
 import os
 import math
-from monomial import Monomial
+from monomial import Monomial, Polynomial
 from input_parser import InputString
-
-def adv_time(time):
-    return time + 1
-
-class arguments():
-
-    def __init__(self,x = 1.0, currency = 0.0, time = 0):
-        self.x = x
-        self.currency = currency
-        self.time = time
+from arguments import Arguments
 
 
 
-def test_it():
+
+
+
+def test_it(args):
     print('Hello')
     print('This is really fun! I love my life!')
 
-    highest_degree = 0
+    
+    args.x = 1.6
 
-    print('Highest degree: ' + str(highest_degree))
-
-    mono_list = []
 
     loop = 6
 
     for i in range(loop):
-        mono_list.append(Monomial(1,i,0.1))
-        highest_degree += 1
+        args.polynomial.add_monomial(1.0,0.1)
+    
 
 
     print('Passing parameter 1.6')
     polysum = 0.0
-    for i in range(highest_degree):
-        res = mono_list[i].compute_monomial(1.6)
-        print(str(i)+'th polynomial = '+ str(res))
-        polysum += res
+    polysum = args.polynomial.compute_polynomial(args.x)
 
     print('Final result = ',polysum)
+
+
+def print_interface(args):
+    #print the interface of the game
+    print('Polynomial Adventures v0.01')
+    print('Currency =', args.currency)
+    print('X = ', args.x)
+    print('Time = ',args.time)
 
 def main():
 
 
     #main variables initalization
-    args = arguments()
+    args = Arguments()
     #polynomial
 
+    controller = InputString('none')
 
-    print(args.time)
+
+    #beginning
+    args.x = 2.0
+    loop = 6
+    #for i in range(loop):
+    #    args.polynomial.add_monomial(0.1,0.1)
+
+    #print('Passing parameter 2.0')
+    #for testing purposes
+    
 
 
-    #test_it()
+
+    #main game loop
+    #print interface
+    #ask for input
+    #perform action
+    #compute currency
+    while controller.command is not 'stop':
+        #print interface
+        print_interface(args)
+
+        #asks for input
+        input_str = input('Controller:')
+        controller.generate_command(input_str)
+
+        #handle input (in action function)
+        if controller.command == 'time':
+            args.adv_time()
+            args.currency += args.polynomial.compute_polynomial(args.x)
+        elif controller.command == 'unknown':
+            print('Unknown command. type "help" for... well, help')
+        elif controller.command == 'none':
+            print('')
+
+
+        #compute currency (only if time)
+            
+        
+    
+
+
 
 if __name__ == '__main__':
     main()
+
+##End
